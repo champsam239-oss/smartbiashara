@@ -1,0 +1,4 @@
+project_id = "smart-biashara-app"
+
+[functions.team]
+verify_jwt = true

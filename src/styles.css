@@ -1,0 +1,72 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #1d2c26;
+  background: #f4f7f4;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
+  --green: #123d31;
+  --green-soft: #e5eee9;
+  --grey: #68766f;
+  --line: #dce5df;
+  --red: #a83131;
+  --amber: #815b0a;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, input, select { font: inherit; }
+button { min-height: 42px; border: 0; border-radius: 10px; padding: 9px 14px; background: var(--green); color: white; font-weight: 650; cursor: pointer; }
+button:hover:not(:disabled) { background: #205442; }
+button:disabled { cursor: not-allowed; opacity: .55; }
+button.ghost { color: var(--green); background: transparent; border: 1px solid var(--line); }
+button.ghost:hover:not(:disabled) { background: var(--green-soft); }
+button.fit { flex: 0 0 auto; }
+input, select { width: 100%; min-height: 42px; border: 1px solid #cbd8d0; border-radius: 9px; padding: 9px 11px; color: inherit; background: white; }
+input:focus, select:focus, button:focus-visible { outline: 3px solid #a9c9b9; outline-offset: 2px; }
+label { display: grid; gap: 6px; color: #37483f; font-size: .92rem; }
+h1 { font-size: clamp(1.5rem, 4vw, 2rem); letter-spacing: -.03em; }
+h2 { font-size: 1.2rem; }
+small { color: var(--grey); }
+hr { border: 0; border-top: 1px solid var(--line); margin: 16px 0; }
+main { width: min(100% - 28px, 920px); margin: 0 auto; padding: 24px 0 60px; }
+main > h1:first-child { color: var(--green); }
+.card { margin: 12px 0; padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: white; box-shadow: 0 3px 12px rgb(23 55 40 / 4%); }
+.row { display: flex; align-items: center; gap: 10px; }
+.row > * { min-width: 0; flex: 1; }
+.row > button { flex: 0 0 auto; }
+nav { display: flex; gap: 7px; margin: 14px 0 18px; padding: 5px 0 10px; }
+nav button { min-width: max-content; color: var(--green); background: white; border: 1px solid var(--line); }
+nav button[aria-current="true"] { color: white; background: var(--green); border-color: var(--green); }
+.err, [role="alert"] { margin: 10px 0; padding: 10px 12px; border-radius: 9px; color: #842828; background: #fff0ef; }
+.ok, [role="status"] { margin: 10px 0; padding: 10px 12px; border-radius: 9px; color: #20523d; background: #e9f5ed; }
+.empty { padding: 18px; color: var(--grey); text-align: center; }
+.item { display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+.item small { display: block; margin-top: 4px; }
+.qty { display: flex; align-items: center; gap: 8px; }
+.qty button { min-width: 46px; }
+.stock-count { justify-content: flex-end; margin-top: 10px; }
+.stock-count label { max-width: 220px; }
+.scan-row { margin-bottom: 8px; }
+.scanner-backdrop { position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; padding: 16px; background: rgb(7 20 14 / 72%); }
+.scanner-card { width: min(100%, 520px); padding: 16px; border-radius: 16px; background: white; box-shadow: 0 20px 70px rgb(0 0 0 / 25%); }
+.scanner-card h2 { margin: 0; }
+.scanner-card video { display: block; width: 100%; max-height: 55vh; margin-top: 12px; border-radius: 12px; background: #17251e; object-fit: cover; }
+.backup-actions { justify-content: flex-start; flex-wrap: wrap; margin: 8px 0; }
+.total { margin: 10px 0; color: var(--green); font-size: 1.8rem; font-weight: 800; }
+.checkout { position: sticky; bottom: 0; z-index: 2; margin: 16px -8px 0; padding: 12px 8px max(12px, env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: rgb(244 247 244 / 96%); backdrop-filter: blur(10px); }
+.checkout > div { max-width: 920px; margin: 0 auto; }
+.checkout > div > button:last-child { width: 100%; margin-top: 10px; }
+table { width: 100%; border-collapse: collapse; font-size: .94rem; }
+th, td { padding: 10px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { color: var(--grey); font-size: .82rem; }
+@media (max-width: 600px) {
+  main { width: min(100% - 20px, 920px); padding-top: 14px; }
+  .row { align-items: stretch; }
+  .scan-row { flex-wrap: wrap; }
+  .scan-row button { width: 100%; }
+  .backup-actions > button { flex: 1 1 160px; }
+  .card { padding: 13px; }
+  table { display: block; overflow-x: auto; white-space: nowrap; }
+  nav { margin-left: -4px; margin-right: -4px; }
+}
